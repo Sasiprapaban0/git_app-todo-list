@@ -7,7 +7,7 @@ $(document).ready(function(){
       type:'DELETE',
       url: '/todos/'+id,
       success: function(response){
-        alert('Deleting Article');
+        alert('Do you want delete task');
         window.location.href='/todos';
       },
       error: function(err){
