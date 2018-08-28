@@ -1,0 +1,36 @@
+$primary-color: #AABBCC;
+h1 {
+    color: $primary-color;
+}
+h2 {
+    color: $primary-color;
+}
+* {
+    font-size:20px;
+  }
+  .item {
+    height: 44px;
+    width: 100%;
+    clear: both;
+    .name {
+      width: 300px;
+    }
+    .action {
+      width: 100px;
+    }
+    .done{
+        width: 100px
+     }
+    .edit{
+       width: 100px
+    }
+    .delete {
+      width: 100px
+    }
+    div {
+      float:left;
+    }
+  }
+  a {
+    color: #00B7FF;
+  }

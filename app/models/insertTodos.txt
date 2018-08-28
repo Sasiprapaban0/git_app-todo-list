@@ -1,0 +1,14 @@
+db.todos.insert({
+    description: 'Study of the Brain',
+    done: false
+})
+
+db.todos.insert({
+    description:'Refactoring the DOM',
+    done: false
+})
+
+db.todos.insert({
+    description: 'Learn Colloquial Speech',
+    done: false
+})
