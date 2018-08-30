@@ -25,7 +25,6 @@ head
                     div.action
                         form(name='done', method='POST', action='/todos/#{todo._id}')
                             input.btn.btn-success(type='submit', value='Done')
-                            span=todo.done
                     div.num
                         span=index+1
                         |.&nbsp;
@@ -37,6 +36,7 @@ head
                         a.btn.btn-danger.delete-article(href='#',data-id=todo._id.toString()) Delete
         
         if doneTodos
+            |.&nbsp;
             h3 Done
             div
                 each doneTodo, index in doneTodos
@@ -44,7 +44,6 @@ head
                         div.action
                             form(name='done', method='POST', action='/todos/#{doneTodo._id}')
                                 input.btn.btn-success(type='submit', value='Done')
-                                span=doneTodo.done
                         div.num
                             span=index+1
                             |.&nbsp;

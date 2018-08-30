@@ -61,7 +61,7 @@ exports.todoByDescription = function(req, res, next, id ){
 exports.renderEditMode = function(req, res, next){
     // console.log('render edit mode task %s with id=%s completed.', req.todos.description , req.todos._id);
         res.render('edit_todo',{
-            title: 'Edit existing task',
+            title: 'Edit Existing Task',
             todos: req.todos
         });
 };
