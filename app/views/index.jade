@@ -1,46 +1,25 @@
 html
 head
-    title= title
+    title To do list - Web Application
     link(rel='stylesheet' href='/bower_components/bootstrap/dist/css/bootstrap.css')
     link(rel="stylesheet", href="css/main.css")
     body
-    
-        form(name='add', method='POST', action='todos')
-            div
-                input(type="text", name="description" , placeholder='Add a new task')
-                input(type='submit', value='add')
-        if(todos.length === 0)
-            |No tasks.
-        each todo, index in todos
-            .item
-                div.action
-                    form(name='done', method='POST', action='/todos/#{todo._id}')
-                    input(type='hidden', value=todo._id.toString(), name='id')
-                    input(type='hidden', value='true', name='completed')
-                    input(type='hidden', value=locals._csrf, name='_csrf')
-                    input(type='submit', value='Done')
-                div.num
-                    span=index+1
-                    |.&nbsp;
-                div.name
-                    //span.name=todo.description
-                    a(href="/todos/"+todo._id)= todo.description
-                div.edit
-                    a(href='/todo/edit') Edit
-                div
-                     a.btn.btn-danger.delete-article(href='#',data-id=todo._id.toString()) Delete
-
+        nav.navbar.navbar-inverse
+            .container-fluid
+                .navbar-header
+                    a.navbar-brand(href='#') To do list - Web Application
+                ul.navbar-nav.mr-auto 
+                    li.list-group-item.col-xs-6
+                        a(href="/") Home
+                    li.li.list-group-item.col-xs-6
+                        a(href="/todos") Todo List
+        .container
+            .starter-template
+                 h1 To do list - Web Application
+                    .home
+                        p The full source code is available at&nbsp;
+                             a(href='https://github.com/Sasiprapaban0/git_app-todo-list.git') github.com/Sasiprapaban0/git_app-todo-list.git
+                            |.
     script(src='/bower_components/jquery/dist/jquery.js')  
     script(src='/bower_components/bootstrap/dist/js/bootstrap.js')
     script(src='/javascripts/main.js')
-
-    
-
-    
-               
-                
-        
-        
-
-     
-       

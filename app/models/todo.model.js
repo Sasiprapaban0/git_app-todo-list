@@ -4,7 +4,7 @@ var Schema   = mongoose.Schema;
 var TodoSchema = new Schema({
     description:{
         type: String,
-        require: true
+        required: true
     } ,
     done: {
         type: Boolean,

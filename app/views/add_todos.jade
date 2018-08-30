@@ -1,0 +1,60 @@
+html
+head
+    title To do list - Web Application
+    link(rel='stylesheet' href='/bower_components/bootstrap/dist/css/bootstrap.css')
+    link(rel="stylesheet", href="css/main.css")
+    body
+        nav.navbar.navbar-inverse
+            .container-fluid
+                .navbar-header
+                    a.navbar-brand(href='#') To do list - Web Application
+                ul.navbar-nav.mr-auto 
+                    li.list-group-item.col-xs-6
+                        a(href="/") Home
+                    li.li.list-group-item.col-xs-6
+                        a(href="/todos") Todo List
+        form(name='add', method='POST', action='todos')
+            div
+                input(type="text", name="description" , placeholder='Add a new task')
+                input(type='submit', value='add')
+        if(todos.length === 0)
+                |No tasks.
+            div
+            each todo, index in todos
+                .item
+                    div.action
+                        form(name='done', method='POST', action='/todos/#{todo._id}')
+                            input.btn.btn-success(type='submit', value='Done')
+                            span=todo.done
+                    div.num
+                        span=index+1
+                        |.&nbsp;
+                    div.name
+                        a(href="/todos/"+todo._id)= todo.description
+                    div.edit
+                        a.button.btn.btn-default(href='/todos/edit/'+todo._id.toString()) Edit 
+                    div
+                        a.btn.btn-danger.delete-article(href='#',data-id=todo._id.toString()) Delete
+        
+        if doneTodos
+            h3 Done
+            div
+                each doneTodo, index in doneTodos
+                    .item
+                        div.action
+                            form(name='done', method='POST', action='/todos/#{doneTodo._id}')
+                                input.btn.btn-success(type='submit', value='Done')
+                                span=doneTodo.done
+                        div.num
+                            span=index+1
+                            |.&nbsp;
+                        div.name
+                            a(href="/todos/"+doneTodo._id)= doneTodo.description
+                        div.edit
+                            a.button.btn.btn-default(href='/todos/edit/'+doneTodo._id.toString()) Edit 
+                        div
+                            a.btn.btn-danger.delete-article(href='#',data-id=doneTodo._id.toString()) Delete
+
+    script(src='/bower_components/jquery/dist/jquery.js')  
+    script(src='/bower_components/bootstrap/dist/js/bootstrap.js')
+    script(src='/javascripts/main.js')

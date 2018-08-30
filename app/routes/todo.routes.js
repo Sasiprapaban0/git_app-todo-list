@@ -1,18 +1,20 @@
 module.exports = function(app) {
     var todo = require('../controllers/todo.controller');
-    //Get all todo task list
-   // app.get('/', todo.list);
+    //==== Get all task list and add a task to the list 
     app.route('/todos')
         .get(todo.list)
         .post(todo.create);
-    // Get single employee by id
+    //==== Get single task by id ===========//
     app.route('/todos/:id')
         .get(todo.read)
-        .put(todo.update)
+        .post(todo.completed)
         .delete(todo.delete);
-    app.route('/todos/:id/completed')
-        .put(todo.completed);
     app.param('id', todo.todoByDescription);
-    //========== Edit Mode ===============//
-    //app.route('/')
+    //==========  Edit Mode ===============//
+    app.route('/todos/edit/:id')
+        .get(todo.renderEditMode)
+        .post(todo.update);
+    // //========= Routes Check Status =========//
+    // app.route('/todos/:id/completed')
+    //     .put(todo.completed);
 };
